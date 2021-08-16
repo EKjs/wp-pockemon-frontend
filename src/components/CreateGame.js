@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Loader from "react-loader-spinner";
 import { useHistory } from "react-router";
+import LoaderDots from "./LoaderDots";
 
 //import LoginContext from "./LoginContext";
 
@@ -70,8 +70,7 @@ const CreateGame = () => {
     setCurPokemonData(pokData);
   };
 
-  if (loading)
-    return <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />;
+  if (loading) return <LoaderDots />;
   if (error) return <>{error}</>;
   return (
     <>

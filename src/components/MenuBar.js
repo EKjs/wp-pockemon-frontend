@@ -33,6 +33,7 @@ const MenuBar = () => {
         <li className="nav-item">
             <NavLink className="nav-link" activeClassName="active" to="" onClick={signOut}>Logout</NavLink>
         </li>
+
                 </>
                 ) : (
                 <>
@@ -46,6 +47,7 @@ const MenuBar = () => {
                 )}
 
       </ul>
+      {isAuthenticated && <span class="navbar-text me-4">{localStorage.getItem('userName')}</span>}
     </div>
   </div>
 </nav>

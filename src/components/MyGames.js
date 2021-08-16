@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Loader from "react-loader-spinner";
+import LoaderDots from "./LoaderDots";
 
 const MyGames = () => {
     const [gamesList,setGamesList] = useState();
@@ -29,7 +29,7 @@ const updateStatus = () => {
   loadMyGames()
 }
 
-    if (loading)return <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />;
+  if (loading) return <LoaderDots />;
     //if (error)return <>{error}</>
     return (<>
     <div className='col'>

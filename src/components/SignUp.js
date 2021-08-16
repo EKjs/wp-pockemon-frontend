@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Redirect, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import Loader from "react-loader-spinner";
+import LoaderDots from "./LoaderDots";
 
 const SignUp = () => {
   const location = useLocation();
@@ -30,8 +30,7 @@ const SignUp = () => {
         }}
       />
     );
-  if (loading)
-    return <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />;
+    if (loading) return <LoaderDots />;
   return (
     <div className="col-6 md-4">
       <div className="row">

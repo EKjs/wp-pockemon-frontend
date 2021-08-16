@@ -1,9 +1,7 @@
 import { Route, Switch } from "react-router-dom";
-import { useState } from "react";
 import 'bootstrap/scss/bootstrap.scss';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Carousel } from 'bootstrap';
-import {LoginProvider} from './components/LoginContext';
 import MainPage from "./components/MainPage";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
@@ -19,9 +17,6 @@ import LeaderBoard from "./components/LeaderBoard";
 
 function App() {
   console.log(Carousel);
-  const [isLoggedIn, setIsLoggedIn] = useState('');
-  const value = { isLoggedIn, setIsLoggedIn };
-
   return (
     <div>
       <AuthState>
@@ -41,13 +36,7 @@ function App() {
         </Switch>
         </div>
       </div>
-      
-      <LoginProvider value={value}>
-
-          
-        </LoginProvider>
-
-        </AuthState>
+      </AuthState>
     </div>
   );
 }

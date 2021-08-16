@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Loader from "react-loader-spinner";
+import LoaderDots from "./LoaderDots";
 import axios from "axios";
 
 const Game = () => {
@@ -66,9 +66,11 @@ const Game = () => {
               headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             }
           );
-        if (gStat[0].winner && gStat[0].looser && gStat[0].gameId){ //game is over
-            console.log('gameover');
-            setGameOverInfo(gStat[0]);
+        if (gStat[0]){
+            if (gStat[0].winner && gStat[0].looser && gStat[0].gameId){ //game is over
+                console.log('gameover');
+                setGameOverInfo(gStat[0]);
+            }
         }else{
             setCurGameStatus(gStat);
         }
@@ -77,7 +79,7 @@ const Game = () => {
         console.log('refr',gStat[0]);
     }
 
-    if (loading)return <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />;
+    if (loading) return <LoaderDots />;
     /* if (error)return <>{error}</> */
     if (gameOverInfo)return (
     <div className='col'>
